@@ -43,3 +43,8 @@ names(merged) <- gsub("\\.", "", tolower(names(merged)))
 # Calculate averages
 
 averages <- merged %>% group_by(activitylabel, subject) %>% summarise_each(funs(mean))
+
+# Write averages
+
+setwd("..")
+write.table(averages, "averages.csv", row.name = FALSE)
